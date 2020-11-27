@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f6b861;
+}
+
+.display {
+  display: none !important;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  animation: fadeout 0.5s ease-in-out;
+}
+
+main {
+  flex: auto;
+  padding: 0 3%;
+
+  :first-child{
+    padding-top: 90px;
+  }
+
+  :last-child{
+    padding-bottom: 90px;
+  }
+
+  h1{
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 30px 0;
+  }
+}
+
+.header {
+  padding: 30px 20px 0 20px;
+  margin: 0 10px;
+  position: fixed;
+  height: 60px;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.2s ease;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &.sticky {
+    background: #fff;
+    -webkit-box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
+    box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
+    padding-top: 5px;
+  }
+}
+
+footer {
+  justify-content: flex-end;
+  padding: 20px 3%;
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+  opacity: 0.5;
+  font-size: 12px;
+  
+}
+
+.logo {
+  flex-grow: 1;
+  text-align: right;
+  //padding: 0 12px;
+
+  img {
+    width: 45px;
+  }
+}
+
+.menu {
+  flex-grow: 3;
+  padding-left: 25px;
+
+  &.open {
+    display: flex;
+    overflow-y: auto;
+  }
+
+  button {
+    margin: 0 20px;
+  }
+
+  a {
+    margin: 5px 20px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+  }
+
+  a:hover {
+    background: linear-gradient(45deg, #f6b861 30%, #ec9d36 90%);
+    color: white;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.2s ease;
+  }
+
+  a:active {
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.cta {
+  background-image: url(../images/tulips_min.png);
+  background-size: 40vw;
+  background-position: right center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  // position: relative;
+  // top: -100px;
+
+  .content {
+    max-width: 530px;
+    position: relative;
+    top: 30px;
+    left: 10%;
+    padding: 3%;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  p {
+    padding: 40px 0;
+    font-weight: 300;
+    line-height: 170%;
+    letter-spacing: 0.5px;
+  }
+
+  .scroll-arrow {
+    //animation: jump 1s ease infinite;
+  }
+}
+
+.prices {
+  align-items: center;
+  display: flex;
+  padding: 0 30px;
+  background: rgba(0, 0, 0, 0.05);
+  height: 70px;
+  border-radius: 3px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+  .cost {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  span {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  input {
+    border-radius: 3px;
+    border: 0;
+    font-size: 1.1rem;
+    padding: 10px;
+    width: 80px;
+    background: transparent;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button {
+    opacity: 1;
+  }
+}
+
+.button {
+  background: linear-gradient(45deg, #f6b861 30%, #ec9d36 90%);
+  color: white;
+  border-radius: 3px;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s ease;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes jump {
+  from {
+    top: 0;
+  }
+  to {
+    top: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .display {
+    display: inherit !important;
+  }
+
+  .logo {
+    text-align: left;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 10px 0;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #f1f3f9;
+    background-color: #ffffff;
+
+    &.desktop {
+      display: none;
+    }
+  }
+
+  .cta {
+    .content {
+      left: auto;
+      align-self: center;
+      //max-width: inherit;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}

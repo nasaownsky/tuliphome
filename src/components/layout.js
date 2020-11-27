@@ -10,9 +10,10 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import Cta from "./cta"
+import "./layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, cta }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,25 +25,16 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className="container">
+      <Header menu={["Главная", "Тюльпаны", "Доставка", "Контакты"]} />
+      {cta ? <Cta /> : null}
+      <main>{children}</main>
+      <footer>
+        Наш тюльпан, Copyright © {new Date().getFullYear()} <br />
+        Данный сайт носит исключительно информационный характер и не является
+        публичной офертой
+      </footer>
+    </div>
   )
 }
 
