@@ -25,12 +25,17 @@ const Layout = ({ children, cta }) => {
   `)
 
   return (
-    <div className="container">
-      <Header menu={["Главная", "Тюльпаны", "Доставка", "Контакты"]} />
+    <div id="main" className="container">
+      <Header
+        menu={[
+          { title: "Тюльпаны", href: "#tulips" },
+          { title: "Галерея", href: "#insta" },
+        ]}
+      />
       {cta ? <Cta /> : null}
-      <main>{children}</main>
+      <main id="tulips">{children}</main>
       <footer>
-        Наш тюльпан, Copyright © {new Date().getFullYear()} <br />
+        Дом тюльпана, Copyright © {new Date().getFullYear()} <br />
         Данный сайт носит исключительно информационный характер и не является
         публичной офертой
       </footer>
