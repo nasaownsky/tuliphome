@@ -1,20 +1,23 @@
 if (process.env.NODE_ENV === "development" || "production") {
-  require("dotenv").config();
+  require("dotenv").config()
 }
 
 module.exports = {
   siteMetadata: {
-    title: `Дом тюльпана`,
-    description: `Тюльпаны оптом в Беларуси без посредников`,
+    title: `Наш Тюльпан`,
+    description: `Тюльпаны оптом в Беларуси от производителя`,
     author: `@nasaownsky`,
+    url: `https://www.nashtulpan.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -22,13 +25,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Наш Тюльпан`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#f6b861`,
+        theme_color: `#f6b861`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/icon.webp`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sass`,
@@ -39,9 +41,10 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
-    }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-image`,
   ],
 }
